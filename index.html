@@ -3,74 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Analog Clock</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #F2C629;
-    }
-
-    .clock-container {
-         display: flex;
-         flex-direction: column;
-        
-
-    }
-
-    #currentTime {
-
-        margin-top: 20px;
-        padding: 20px;
-        font-weight: bold;
-        background-color: rgb(28, 172, 83);
-        border-radius: 7px;
-    }
-
-    .clock {
-      position: relative;
-      width: 200px;
-      height: 200px;
-      border: 8px solid #333;
-      border-radius: 50%;
-      
-    }
-
-
-    .clock img {
-   
-      width: 200px;
-      height: 200px;
-     
-      
-    }
-
-    .hand {
-      position: absolute;
-      width: 50%;
-      height: 2px;
-      background-color: #333;
-      top: 50%;
-      transform-origin: 100%;
-      transform: rotate(90deg);
-      transition: transform 0.5s cubic-bezier(0.4, 2.2, 0.4, 1);
-    }
-
-    .minute {
-      height: 1.5px;
-      background-color: #666;
-    }
-
-    .second {
-      height: 1px;
-      background-color: #f00;
-    }
-
-
-  </style>
+  <link rel="stylesheet" href="style.css">
+  
+  
+  <title> MY Clock</title>
+  
 </head>
 <body>
 
@@ -86,62 +23,11 @@
  
   <div id="currentTime"></div>
 </div>
-
-
-  
-  <script>
-    function updateClock() {
-      const now = new Date();
-      const hours = now.getHours() % 12;
-      const minutes = now.getMinutes();
-      const seconds = now.getSeconds();
-
-      const hourElement = document.getElementById('hour');
-      const minuteElement = document.getElementById('minute');
-      const secondElement = document.getElementById('second');
-
-      const hourRotation = (hours + minutes / 60) * 360 / 12;
-      const minuteRotation = (minutes + seconds / 60) * 360 / 60;
-      const secondRotation = seconds * 360 / 60;
-
-      hourElement.style.transform = `rotate(${hourRotation}deg)`;
-      minuteElement.style.transform = `rotate(${minuteRotation}deg)`;
-      secondElement.style.transform = `rotate(${secondRotation}deg)`;
-    }
-
-    setInterval(updateClock, 1000);
-    updateClock(); // Run once on load
-  </script>
 </body>
 </html>
 
+<script src="script.js">  </script>
 
 
 
-  <script>
-    function updateCurrentTime() {
-      // Get the current time
-      const now = new Date();
 
-      // Extract hours, minutes, and seconds
-      const hours = now.getHours();
-      const minutes = now.getMinutes();
-      const seconds = now.getSeconds();
-
-      // Format the time as a string
-      const formattedHours = hours < 10 ? `0${hours}` : hours;
-      const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
-      const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
-
-      const timeString = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
-
-      // Display the time in the specified div
-      document.getElementById('currentTime').innerText = 'Current Time: ' + timeString;
-    }
-
-    // Update the current time every second
-    setInterval(updateCurrentTime, 1000);
-
-    // Run the function once on load to display the initial time
-    updateCurrentTime();
-  </script>

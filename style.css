@@ -1,0 +1,64 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #F2C629;
+  }
+
+  .clock-container {
+       display: flex;
+       flex-direction: column;
+      
+
+  }
+
+  #currentTime {
+
+      margin-top: 20px;
+      padding: 20px;
+      font-weight: bold;
+      background-color: rgb(28, 172, 83);
+      border-radius: 7px;
+      color: white;
+  }
+
+  .clock {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 8px solid #333;
+    border-radius: 50%;
+    
+  }
+
+
+  .clock img {
+ 
+    width: 200px;
+    height: 200px;
+   
+    
+  }
+
+  .hand {
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    background-color: #333;
+    top: 50%;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: transform 0.5s cubic-bezier(0.4, 2.2, 0.4, 1);
+  }
+
+  .minute {
+    height: 1.5px;
+    background-color: #666;
+  }
+
+  .second {
+    height: 1px;
+    background-color: #f00;
+  }
